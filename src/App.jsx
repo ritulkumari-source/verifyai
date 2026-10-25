@@ -114,6 +114,7 @@ function PageHeading({ eyebrow, title, description, children }) {
         >
           {eyebrow}
         </p>
+
         <h1
           style={{
             color: colors.green,
@@ -124,10 +125,12 @@ function PageHeading({ eyebrow, title, description, children }) {
         >
           {title}
         </h1>
+
         <p style={{ color: colors.muted, lineHeight: 1.6 }}>
           {description}
         </p>
       </div>
+
       {children}
     </div>
   );
@@ -172,6 +175,7 @@ export default function App() {
 
     setFiles((current) => {
       const combined = [...current, ...incoming];
+
       return combined.filter(
         (file, index, array) =>
           array.findIndex(
@@ -191,6 +195,7 @@ export default function App() {
     setFiles((current) =>
       current.filter((_, index) => index !== indexToRemove)
     );
+
     setValidationRun(false);
   }
 
@@ -201,7 +206,7 @@ export default function App() {
 
   function downloadDemoReport() {
     const report = {
-      reportType: "VerifyAI demonstration report",
+      reportType: "DocuLens demonstration report",
       generatedAt: new Date().toISOString(),
       application: selected
         ? {
@@ -224,7 +229,7 @@ export default function App() {
     const link = document.createElement("a");
 
     link.href = url;
-    link.download = `${selected?.id || "verifyai"}-demo-report.json`;
+    link.download = `${selected?.id || "doculens"}-demo-report.json`;
     link.click();
 
     URL.revokeObjectURL(url);
@@ -261,16 +266,19 @@ export default function App() {
           }}
         >
           <ShieldCheck size={30} color="#D4BD91" />
+
           <div>
             <div
               style={{
                 fontSize: 20,
                 fontWeight: 600,
                 color: "#FFFFFF",
+                letterSpacing: 0.2,
               }}
             >
-              VerifyAI
+              DocuLens
             </div>
+
             <div
               style={{
                 fontSize: 9,
@@ -278,7 +286,7 @@ export default function App() {
                 marginTop: 3,
               }}
             >
-              APPROVAL INTELLIGENCE
+              DOCUMENT INTELLIGENCE
             </div>
           </div>
         </div>
@@ -341,7 +349,7 @@ export default function App() {
             color: "#A8B7AA",
           }}
         >
-          VERIFYAI · PROTOTYPE 0.1
+          DOCULENS · PROTOTYPE 0.1
         </div>
       </aside>
 
@@ -373,7 +381,9 @@ export default function App() {
             <span style={{ fontSize: 10, color: colors.muted }}>
               ● Prototype environment
             </span>
+
             <Bell size={17} />
+
             <span
               style={{
                 background: "#E4E8DD",
@@ -384,6 +394,7 @@ export default function App() {
             >
               RO
             </span>
+
             <span style={{ fontSize: 11 }}>Reviewing Officer</span>
           </div>
         </header>
@@ -437,6 +448,7 @@ export default function App() {
                   >
                     {selected.id}
                   </p>
+
                   <h1
                     style={{
                       color: colors.green,
@@ -447,6 +459,7 @@ export default function App() {
                   >
                     Application review
                   </h1>
+
                   <p style={{ color: colors.muted }}>
                     {selected.institution}
                   </p>
@@ -479,6 +492,7 @@ export default function App() {
                     >
                       {label}
                     </p>
+
                     <p
                       style={{
                         color: colors.green,
@@ -518,6 +532,7 @@ export default function App() {
                     >
                       Document checklist
                     </h2>
+
                     <p
                       style={{
                         color: colors.muted,
@@ -561,6 +576,7 @@ export default function App() {
                       <span style={{ fontSize: 11, lineHeight: 1.5 }}>
                         {name}
                       </span>
+
                       <span
                         style={{
                           fontSize: 10,
@@ -599,6 +615,7 @@ export default function App() {
                       }}
                     >
                       <ShieldCheck size={19} color={colors.brass} />
+
                       <h2
                         style={{
                           color: colors.green,
@@ -660,6 +677,7 @@ export default function App() {
                             >
                               Extracted value
                             </p>
+
                             <p
                               style={{
                                 color: "#963D35",
@@ -670,6 +688,7 @@ export default function App() {
                               INST-2086
                             </p>
                           </div>
+
                           <div>
                             <p
                               style={{
@@ -679,6 +698,7 @@ export default function App() {
                             >
                               Demo reference
                             </p>
+
                             <p
                               style={{
                                 color: colors.green,
@@ -725,6 +745,7 @@ export default function App() {
                               ? "Missing items identified"
                               : "Further review may be required"}
                         </p>
+
                         <p
                           style={{
                             color: colors.muted,
@@ -762,6 +783,7 @@ export default function App() {
                     >
                       Officer observation
                     </h2>
+
                     <p
                       style={{
                         color: colors.muted,
@@ -930,6 +952,7 @@ export default function App() {
                   <p style={{ color: colors.green, fontWeight: 600 }}>
                     Select supporting documents
                   </p>
+
                   <p
                     style={{
                       color: colors.muted,
@@ -948,6 +971,7 @@ export default function App() {
                     }}
                   >
                     Browse files
+
                     <input
                       type="file"
                       multiple
@@ -990,6 +1014,7 @@ export default function App() {
                           >
                             {file.name}
                           </p>
+
                           <p
                             style={{
                               color: colors.muted,
@@ -1118,6 +1143,7 @@ export default function App() {
                 >
                   Audit trail integration
                 </h2>
+
                 <p
                   style={{
                     color: colors.muted,
@@ -1130,6 +1156,7 @@ export default function App() {
                   reviewer, timestamp, action, evidence reference and
                   applicable rule version.
                 </p>
+
                 <StatusBadge status="Pending verification" />
               </section>
             </div>
@@ -1195,6 +1222,7 @@ export default function App() {
                       <p style={{ color: colors.muted, fontSize: 11 }}>
                         {label}
                       </p>
+
                       <div
                         style={{
                           fontSize: 32,
@@ -1205,6 +1233,7 @@ export default function App() {
                       >
                         {value}
                       </div>
+
                       <p style={{ color: colors.muted, fontSize: 10 }}>
                         {note}
                       </p>
@@ -1241,6 +1270,7 @@ export default function App() {
                     >
                       Application register
                     </h2>
+
                     <p
                       style={{
                         fontSize: 11,
@@ -1263,6 +1293,7 @@ export default function App() {
                     }}
                   >
                     <Search size={15} color={colors.muted} />
+
                     <input
                       value={query}
                       onChange={(event) => setQuery(event.target.value)}
@@ -1332,6 +1363,7 @@ export default function App() {
                             >
                               {app.id}
                             </div>
+
                             <div
                               style={{
                                 marginTop: 6,
